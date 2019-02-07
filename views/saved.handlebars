@@ -1,0 +1,52 @@
+<div class="container">
+{{#each articles}} 
+{{#if read}}
+<div class="card">
+    <h5 class="card-header">{{title}}</h5>
+    <div class="card-body">
+        <div class="row">
+            <div class="col">
+                <h5 class="card-header">{{date}}</h5>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col">
+                <img class="card-header" {{img}}>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col btn-row">
+                <a href="{{link}}" class="btn btn-info read-btn mx-auto">Read it!</a>
+                <button type="button" class="btn btn-dark mx-auto delete" data-id={{this._id}}>Delete from saved</button>
+                <button type="button" class="btn btn-secondary mx-auto add-note" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Article Note</button>
+            </div>
+        </div>
+    </div>
+</div> 
+{{else}}
+<h1>You have no saved articles :(
+</h1>
+{{/if}}
+{{/each}}
+</div>
+
+
+
+
+{{!-- MODAL FOR NOTE --}}
+{{#each articles}}
+    {{> notes-modal }}
+{{/each}}
+{{!-- 
+    <table id="saved">
+      <thead>
+        <tr>
+          <th id="GCN-title">Title</th>
+          <th id="GCN-date">Date</th>
+          <th id="GCN-link">Link</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- Results from DB here -->
+      </tbody>
+    </table> --}}

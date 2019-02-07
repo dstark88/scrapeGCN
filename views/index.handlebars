@@ -1,0 +1,39 @@
+<div class="container">
+{{#each articles}}
+<div class="card">
+  <h5 class="card-header">{{title}}</h5>
+  <div class="card-body">
+    <div class="row">
+      <div class="col">
+        <h5 class="card-header">{{date}}</h5>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col">
+        <img class="mx-auto" src"{{img}}">
+      </div>
+    </div>
+    <div class="row">
+      <div class="col btn-row">
+        <a href={{link}} class="btn btn-info read-btn mx-auto">Watch it!</a>
+        <button type="button" class="btn btn-dark mx-auto save" data-id={{this._id}}>Save Article</button>
+      </div>
+    </div>
+  </div>
+</div>
+{{/each}}
+</div>
+
+  {{!-- <table id="results">
+    <thead>
+      <tr>
+        <th id="GCN-title">Title</th>
+        <th id="GCN-date">Date</th>
+        <th id="GCN-link">Link</th>
+      </tr>
+    </thead>
+    <tbody class="collection">
+      <!-- Results from DB here -->
+    </tbody>
+
+  </table> --}}

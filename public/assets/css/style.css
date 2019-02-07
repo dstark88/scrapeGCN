@@ -1,0 +1,17 @@
+.active {
+  color: #ee6e73;
+  font-weight: 300;
+}
+
+h1 {
+  color: rgb(255, 157, 0);
+}
+
+.jumbotron {
+  background-color: rgb(47, 52, 55);
+}
+
+body {
+  background-image: url("../images/arrow.jpg");
+  background-size: 100%;
+}
