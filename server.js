@@ -32,12 +32,19 @@ console.log("\n***********************************\n" +
 
 app.get("/", function(req, res) {
   console.log("hit / index");
-  db.Article.find({}, null, {sort: {created: -1}}, function(err, data) {
-    res.render("index", {articles: data});
+  db.Article.find({}, null, { sort: { created: -1 }}, function(err, data) {
+    res.render("index", { articles: data });
   })
 });
 
-// Route 1
+app.get("/all/save", function(req, res) {
+  console.log("hit /all/save ");
+  db.Article.find({ "keep": true }, null, { sort: { created: -1 }}, function(err, data) {
+    res.render("saved");
+  })
+})
+
+// Find all articles
 app.get("/all", function(req, res) {
   console.log("hit /all");
   db.Article.find({}, function(err, data) {
@@ -55,7 +62,6 @@ app.get("/scrape", function(req, res) {
 
   axios.get("https://www.globalcyclingnetwork.com/").then(function(response) {
     var $ = cheerio.load(response.data);
-  // console.log(response.data);
     var result = {};
 
     $("div.video-item-container").each(function(i, element) { 
@@ -63,13 +69,11 @@ app.get("/scrape", function(req, res) {
       result.title = $(element).find("h4.video-item__title").text();
       result.date =$(element).find("h6.video-item__date").text();  
       result.img = $(element).find("img.video-item__thumbnail").attr("src");
-      result.link = "https://www.globalcyclingnetwork.com" + $(element).find("a.video-item").attr("href");
-  
-      console.log(result, "result server.js 60");
-
+      result.link = "https://www.globalcyclingnetwork.com" + $(element).find("a.video-item").attr("href"); 
+      // console.log(result, "result server.js 60");
     db.Article.create(result)
     .then(function(dbArticle) {
-        console.log(dbArticle, "dbArticle server.js 74");
+        // console.log(dbArticle, "dbArticle server.js 69");
       })
       .catch(function(err) {
         console.log(err);
@@ -77,18 +81,6 @@ app.get("/scrape", function(req, res) {
     });
     res.send(result);
   });
-});
-
-//Get all articles
-app.get("/articles", function(req, res) {
-  console.log("hit /articles page server.js 84");
-  db.Article.find({})
-      .then(function(dbArticle) {
-          res.json(dbArticle);
-      })
-      .catch(function(err) {
-          res.json(err);
-      });
 });
 
 // app.get("/saved", function(req, res) {
@@ -99,21 +91,21 @@ app.get("/articles", function(req, res) {
 //     } else {
 //       res.json(data);
 //     }
-//     // window.location.replace("/saved.html");
+//     window.location.replace("/saved");
 //   })
 // })
 
-//Save an ID
-// app.post("/saved/:id", function(req, res) {
-//   console.log("posting to /saved/:id");
-//   db.Article.update({ "_id": req.params.id}, { "save": true}, function(err, data) {
-//     if (err) {
-//       console.log(err);
-//     } else {
-//       res.json(data);
-//     }
-//   })
-// })
+// Save an article by the id
+app.post("/all/save/:id", function(req, res) {
+  console.log("posting to /all/save/:id");
+  db.Article.findOneAndUpdate({ "_id": req.params.id}, { "keep": true}, function(err, data) {
+    if (err) {
+      console.log(err);
+    } else {
+      res.send(data);
+    }
+  })
+})
 
 //Unsave an article from saved
 // app.post("/unsave/:id", function(req, res) {

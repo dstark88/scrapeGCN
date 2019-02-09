@@ -13,7 +13,7 @@
 
 <body>
 	<nav class="navbar navbar-expand-lg fixed-top">
-		<a class="navbar-brand" href="#">GCN News Scraper</a>
+		<a class="navbar-brand" href="/">GCN News Scraper</a>
 		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
 		 aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
@@ -21,12 +21,12 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<li class="nav-item">
+				{{!-- <li class="nav-item">
 					<a class="btn btn-info" role="button" href="/">Home
 					</a>
-				</li>
+				</li> --}}
 				<li class="nav-item">
-					<a class="btn btn-info" role="button" href="/saved">Saved Articles</a>
+					<a class="btn btn-info" id="savedBtn" role="button" href="/all/save">Saved Articles</a>
 				</li>
 				<li class="nav-item">
 					<a class="btn btn-info" id="scrapeBtn" role="button">Scrape New Articles</a>
@@ -34,14 +34,6 @@
 			</ul>
 		</div>
 	</nav>
-
-	<div class="jumbotron jumbotron-fluid">
-		<center>
-		<div class="container jumbo-container">
-			<h1 class="display-4">Scrape Global Cycling Network Articles</h1>
-		</div>
-		</center>
-	</div>
 
 		{{{ body }}}
 	

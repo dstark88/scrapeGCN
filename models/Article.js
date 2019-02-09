@@ -10,9 +10,17 @@ var articleSchema = new Schema({
         type: String,
         // required: true,
     },
+    img: {
+        data: Buffer, 
+        contentType: String, 
+    },
     link: {
         type: String,
         // required: true,
+    },
+    keep: {
+        type: Boolean,
+        default: false,
     }
 })
 
