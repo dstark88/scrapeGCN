@@ -1,18 +1,17 @@
 var mongoose = require("mongoose");
 var Schema = mongoose.Schema;
 
-var articleSchema = new Schema({ 
+var ArticleSchema = new Schema({ 
     title: {
         type: String,
         // required: true,
     },
     date: {
-        type: String,
+        
         // required: true,
     },
     img: {
-        data: Buffer, 
-        contentType: String, 
+        type: String, 
     },
     link: {
         type: String,
@@ -21,9 +20,13 @@ var articleSchema = new Schema({
     keep: {
         type: Boolean,
         default: false,
+    },
+    note: {
+        type: Schema.Types.ObjectId,
+        ref: "Note"
     }
 })
 
-var Article = mongoose.model("Article", articleSchema);
+var Article = mongoose.model("Article", ArticleSchema);
 
 module.exports = Article;

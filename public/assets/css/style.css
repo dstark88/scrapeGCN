@@ -15,3 +15,8 @@ body {
   background-image: url("../images/arrow.jpg");
   background-size: 100%;
 }
+
+img-fluid {
+  width: 30%;
+  height: auto;
+}
