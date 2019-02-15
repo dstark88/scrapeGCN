@@ -1,7 +1,7 @@
 <div class="jumbotron jumbotron-fluid">
   <center>
   <div class="container jumbo-container">
-    <h1 class="display-4">Scrape Global Cycling Network Articles</h1>
+    <h1 class="display-4">Scrape Global Cycling Network Videos!</h1>
   </div>
   </center>
 </div>
@@ -15,16 +15,23 @@
         <div class="col">
           <h5 class="card-text">{{date}}</h5>
         </div>
-        <div class="col btn-row">
+                <div class="col">
+          <img class="card-img" src={{img}}>
+        </div>
+      </div>
+      <div class="col btn-row">
+      
           <a href={{link}} class="btn btn-info keep-Btn card-link" target="blank">Watch it!</a>
+      </div>
+      <div class="col btn-row">
           <button type="button" class="btn btn-dark mx-auto save" data-id={{this._id}}>Save Video</button>
-        </div>
+    
       </div>
-      <div class="row">
+      {{!-- <div class="row">
         <div class="col">
-          <img class="card-img img-fluid" src={{img}}>
+          <img class="card-img" src={{img}}>
         </div>
-      </div>
+      </div> --}}
     </div>
   </div>
   {{/each}}

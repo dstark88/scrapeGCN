@@ -4,10 +4,11 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({ 
     title: {
         type: String,
+        // unique: true,
         // required: true,
     },
     date: {
-        
+        type: String,
         // required: true,
     },
     img: {
@@ -15,6 +16,7 @@ var ArticleSchema = new Schema({
     },
     link: {
         type: String,
+        // unique: true,
         // required: true,
     },
     keep: {

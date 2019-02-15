@@ -16,7 +16,11 @@ body {
   background-size: 100%;
 }
 
-img-fluid {
-  width: 30%;
+.card-img {
+  width: 50%;
   height: auto;
+}
+
+.card {
+  margin: 20px;
 }
