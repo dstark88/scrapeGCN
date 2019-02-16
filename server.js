@@ -8,6 +8,7 @@ var request = require("request");
 var exphbs = require("express-handlebars");
 var app = express();
 var db = require("./models");
+var PORT = process.env.PORT || 8000;
 
 app.use(express.static("public"));
 app.use(logger("dev"));
@@ -17,9 +18,9 @@ app.use(express.json());
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/GCNArticles"
 // mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(MONGODB_URI) 
   // useNewUrlParser: true 
-});
+
 
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -155,6 +156,6 @@ app.post("/articles/:id", function(req, res) {
 
 /* -/-/-/-/-/-/-/-/-/-/-/-/- */
 
-app.listen(8000, function() {
+app.listen(PORT, function() {
   console.log("App running on port 8000!");
 });
