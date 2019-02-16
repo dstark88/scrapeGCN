@@ -154,10 +154,7 @@ app.post("/articles/:id", function(req, res) {
 });
 
 /* -/-/-/-/-/-/-/-/-/-/-/-/- */
-mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true 
-});
+
 app.listen(8000, function() {
   console.log("App running on port 8000!");
 });
