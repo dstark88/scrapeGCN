@@ -4,7 +4,11 @@ var Schema = mongoose.Schema;
 var ArticleSchema = new Schema({ 
     title: {
         type: String,
-        // unique: true,
+        unique: {
+            index: {
+                unique: true
+            }
+        }
         // required: true,
     },
     date: {

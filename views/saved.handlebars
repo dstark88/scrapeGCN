@@ -1,7 +1,7 @@
 <div class="jumbotron-sm">
-    <center>
+    {{!-- <center>
             <h2>Your Saved Videos!</h2>
-    </center>
+    </center> --}}
 </div>
 <div class="container">
 {{#each articles}} 
@@ -19,10 +19,10 @@
                 <a href="{{link}}" class="btn btn-info keep-Btn card-link">Watch it!</a>
             </div>
             <div class="col">
-                <button type="button" class="btn btn-dark mx-auto remove" data-id={{this._id}}>Remove</button>
+                <button type="button" class="btn btn-info mx-auto remove" data-id={{this._id}}>Remove</button>
             </div>
             <div class="col">    
-                <button type="button" class="btn btn-secondary mx-auto addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Video Note</button>
+                <button type="button" class="btn btn-info mx-auto addNote" data-toggle="modal" data-target="#noteModal{{this._id}}" data-id={{this._id}}>Video Note</button>
             </div>
             <div class="col-1"></div>
         </div>

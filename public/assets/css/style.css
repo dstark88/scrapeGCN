@@ -4,12 +4,12 @@
 }
 
 h1, h2 {
-  color: white;
-  font-stretch: condensed;
+  color: rgb(231, 211, 116);
+  font-weight: bolder;
 }
 
 .jumbotron {
-  background-color: rgb(186, 15, 21);
+  background-color: rgb(125, 126, 128);
   height: 200px;
   padding: 20px 20px;
   font-weight: bolder;
@@ -27,21 +27,21 @@ body {
 
 .card-fill {
   margin: 30px 80px;
-  background-color: rgb(186, 15, 21);
+  background-color: rgb(125, 126, 128);
 }
 
 .date-Btn {
   margin-bottom: 15px;
-  color: white;
+  color: rgb(231, 211, 116);
 }
 
 .btn {
   background: rgb(47, 52, 55);
-  color: white;
+  color: rgb(231, 211, 116);
   margin: 5px;
 }
 
 .card-header {
   background: rgb(47, 52, 55);
-  color: white;
+  color: rgb(231, 211, 116);
 }

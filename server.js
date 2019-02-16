@@ -38,7 +38,6 @@ app.get("/", function(req, res) {
 // scrape route
 app.get("/scrape", function(req, res) {
   console.log("hit /scrape");    
-  db.Article.remove()
 
   axios.get("https://www.globalcyclingnetwork.com/")
   .then(function(response) {
@@ -55,7 +54,8 @@ app.get("/scrape", function(req, res) {
 
     db.Article.create(result, function(err, dbArticle) {
       if (err) {
-        throw err;
+        // throw err;
+        console.log("err and result: ");
       } 
       console.log(dbArticle);
     })
