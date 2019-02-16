@@ -16,7 +16,10 @@ app.use(express.json());
 
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/GCNArticles"
-
+// mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  // useNewUrlParser: true 
+});
 
 
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
