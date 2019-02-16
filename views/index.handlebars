@@ -1,37 +1,32 @@
-<div class="jumbotron jumbotron-fluid">
-  <center>
-  <div class="container jumbo-container">
-    <h1 class="display-4">Scrape Global Cycling Network Videos!</h1>
-  </div>
-  </center>
-</div>
+
 
 <div class="container">
   {{#each articles}}
-  <div class="card">
+  <div class="card card-fill">
     <h5 class="card-header">{{title}}</h5>
     <div class="card-body">
-      <div class="row">
+      <center>
+      <div class="row date-Btn">
+        <div class="col-1"></div>
         <div class="col">
           <h5 class="card-text">{{date}}</h5>
         </div>
-                <div class="col">
-          <img class="card-img" src={{img}}>
-        </div>
-      </div>
-      <div class="col btn-row">
-      
+        <div class="col">
           <a href={{link}} class="btn btn-info keep-Btn card-link" target="blank">Watch it!</a>
-      </div>
-      <div class="col btn-row">
+        </div>
+        <div class="col">
           <button type="button" class="btn btn-dark mx-auto save" data-id={{this._id}}>Save Video</button>
-    
+        </div>
+        <div class="col-1"></div>
       </div>
-      {{!-- <div class="row">
+      <div class="row">
         <div class="col">
           <img class="card-img" src={{img}}>
         </div>
-      </div> --}}
+      </div>
+      </center>
+      <div>
+      </div>
     </div>
   </div>
   {{/each}}
