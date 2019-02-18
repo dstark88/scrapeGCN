@@ -17,9 +17,13 @@ app.use(express.json());
 
 
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/GCNArticles"
-// mongoose.Promise = Promise;
-mongoose.connect(MONGODB_URI) 
-  // useNewUrlParser: true 
+mongoose.Promise = Promise;
+mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
+}) 
+ 
+
+
 
 
 
