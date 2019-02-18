@@ -1,4 +1,5 @@
 $("#scrapeBtn").on("click", function() {
+    event.preventDefault()
   console.log("clicked the scrape btn");
   $.ajax({
       method: "GET",

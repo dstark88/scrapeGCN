@@ -4,7 +4,6 @@ var mongoose = require("mongoose");
 var axios = require("axios");
 var logger = require("morgan");
 var cheerio = require("cheerio");
-var request = require("request");
 var exphbs = require("express-handlebars");
 var app = express();
 var db = require("./models");
@@ -18,6 +17,7 @@ app.use(express.json());
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/GCNArticles"
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
+  useNewUrlParser: true
 }) 
  
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
@@ -54,7 +54,7 @@ app.get("/scrape", function(req, res) {
 
     db.Article.create(result, function(err, dbArticle) {
       if (err) {
-        console.log("err and result: ");
+        console.log("err and result: ", err);
       } 
       console.log(dbArticle);
     })

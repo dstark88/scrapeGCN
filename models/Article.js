@@ -9,19 +9,15 @@ var ArticleSchema = new Schema({
                 unique: true
             }
         }
-        // required: true,
     },
     date: {
         type: String,
-        // required: true,
     },
     img: {
         type: String, 
     },
     link: {
         type: String,
-        // unique: true,
-        // required: true,
     },
     keep: {
         type: Boolean,
