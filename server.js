@@ -15,18 +15,11 @@ app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
-
 var MONGODB_URI = process.env.MONGODB_URI || "mongodb://localhost/GCNArticles"
 mongoose.Promise = Promise;
 mongoose.connect(MONGODB_URI, {
-  useNewUrlParser: true
 }) 
  
-
-
-
-
-
 app.engine("handlebars", exphbs({ defaultLayout: "main" }));
 app.set("view engine", "handlebars");
 
@@ -38,7 +31,7 @@ console.log("\n***********************************\n" +
 
 app.get("/", function(req, res) {
   console.log("hit / index");
-  db.Article.find({}, null, { sort: { created: 1 }}, function(err, data) {
+  db.Article.find({}, function(err, data) {
     res.render("index", { articles: data });
   })
 });
@@ -58,16 +51,13 @@ app.get("/scrape", function(req, res) {
       result.date =$(element).find("h6.video-item__date").text();  
       result.img = $(element).find("img.video-item__thumbnail").attr("src");
       result.link = "https://www.globalcyclingnetwork.com" + $(element).find("a.video-item").attr("href"); 
-      // console.log(result, "result server.js 60");
 
     db.Article.create(result, function(err, dbArticle) {
       if (err) {
-        // throw err;
         console.log("err and result: ");
       } 
       console.log(dbArticle);
     })
-
     });
     res.redirect("/");
   });
@@ -159,7 +149,6 @@ app.post("/articles/:id", function(req, res) {
 });
 
 /* -/-/-/-/-/-/-/-/-/-/-/-/- */
-
 app.listen(PORT, function() {
   console.log("App running on port 8000!");
 });
