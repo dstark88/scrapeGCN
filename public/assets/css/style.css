@@ -5,7 +5,7 @@
 
 h1, h2 {
   color: rgb(231, 211, 116);
-  font-weight: bolder;
+  font-weight: inherit;
 }
 
 .jumbotron {
